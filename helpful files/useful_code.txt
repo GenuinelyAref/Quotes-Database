@@ -1,0 +1,9 @@
+**** Regular expression for displaying quotes correctly ****
+'/[^A-Za-z0-9.,?\s\'\-]/'
+
+
+*** Regular expression for validating a birth date (must be AD) ***
+/^\d{1,4}$/
+
+*** Action for forms!!  ****
+action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editme");?>"
