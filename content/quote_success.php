@@ -1,4 +1,4 @@
-<h2>Success!</h2>
+<h2>Add Success!</h2>
 
 <p>You have put the following quote into the database: </p>
 
