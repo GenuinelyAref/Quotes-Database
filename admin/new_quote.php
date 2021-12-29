@@ -49,7 +49,7 @@ else {
           <!-- default option (new author) -->
           <option value="unknown" selected>New Author</option>
 
-          <!-- exitsing authors -->
+          <!-- existing authors -->
           <?php
           do {
             ?>
