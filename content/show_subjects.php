@@ -29,5 +29,23 @@
 
       } // end subject loop
 
+      // if logged in, show edit / delete options
+      if (isset($_SESSION['admin'])) {
+        ?>
+        <div class="edit-tools">
+
+            <!-- edit quote -->
+            <a href="index.php?page=../admin/editquote&ID=<?php echo $find_rs['ID']; ?>" title="Edit quote"><i class="fa fa-edit fa-2x"></i></a>
+
+            <!-- 2 non breaking spaces -->
+            &nbsp; &nbsp;
+
+            <!-- delete quote -->
+            <a href="index.php?page=../admin/deletequote_confirm&ID=<?php echo $find_rs['ID']; ?>" title="Delete quote"><i class="fa fa-trash fa-2x"></i></a>
+
+        </div> <!-- / edit tools div -->
+        <?php
+      }
+
    ?>
 </p>
