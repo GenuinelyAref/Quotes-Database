@@ -4,7 +4,7 @@
 if (isset($_SESSION['admin'])) {
 
     $ID = $_REQUEST['ID'];
-    echo "Author ID: ".$ID;
+    echo "Author ID: ".$ID." space";
 
     // get authors from database
     $all_authors_sql = "SELECT * FROM `author` ORDER BY `Last` ASC";
@@ -111,7 +111,7 @@ if (isset($_SESSION['admin'])) {
             $quote_ID = $get_quote_rs['ID'];
 
             // Go to success page
-            header("Location: index.php?page=editquote_success&quote_ID=".$quote_ID);
+            header("Location: index.php?page=editquote_success&quote_ID=$quote_ID");
 
         } // end add entry to database if
 
