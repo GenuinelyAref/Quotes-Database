@@ -18,7 +18,7 @@ if (password_verify($_REQUEST['password'], $login_rs['Password'])) {
   // password matches
   echo "Password is valid";
   $_SESSION['admin']=$login_rs['Username'];
-  header("Location: index.php?page=../admin/new_quote");
+  header('Location: index.php?page=../admin/new_quote');
 
 } // end valid password if
 
@@ -26,7 +26,7 @@ else {
   echo "Invalid password";
   unset($_SESSION);
   $login_error = "Incorrect username / password";
-  header("Location: index.php?page=../admin/login&error=$login_error");
+  header('Location: index.php?page=../admin/login&error=$login_error');
 
 } // end invalid password else
 
