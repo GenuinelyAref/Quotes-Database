@@ -128,7 +128,7 @@ else {
 
 <h1>Edit Quote...</h1>
 
-<form autocomplete="off" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editquote&$ID");?>">
+<form autocomplete="off" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editquote&ID=$ID");?>">
 
     <!-- dropdown menu -->
     <select name="author">
