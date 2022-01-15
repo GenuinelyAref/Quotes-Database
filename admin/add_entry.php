@@ -444,13 +444,17 @@ autocomplete(document.getElementById("subject1"), all_tags);
 autocomplete(document.getElementById("subject2"), all_tags);
 autocomplete(document.getElementById("subject3"), all_tags);
 
-var all_jobs = <?php print("$all_jobs"); ?>;
-autocomplete(document.getElementById("job1"), all_jobs);
-autocomplete(document.getElementById("job2"), all_jobs);
+<?php if($author_ID == "unknown") { ?>
 
-var all_countries = <?php print("$all_countries"); ?>;
-autocomplete(document.getElementById("country1"), all_countries);
-autocomplete(document.getElementById("country2"), all_countries);
+  var all_jobs = <?php print("$all_jobs"); ?>;
+  autocomplete(document.getElementById("job1"), all_jobs);
+  autocomplete(document.getElementById("job2"), all_jobs);
 
+  var all_countries = <?php print("$all_countries"); ?>;
+  autocomplete(document.getElementById("country1"), all_countries);
+  autocomplete(document.getElementById("country2"), all_countries);
+
+  <?php
+} ?>
 
 </script>
