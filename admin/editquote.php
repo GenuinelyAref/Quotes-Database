@@ -107,7 +107,7 @@ if (isset($_SESSION['admin'])) {
             $_SESSION['Quote_Success'] = $quote_ID;
 
             // Go to success page
-            header("Location: index.php?page=../content/editquote_success");
+            header('Location: index.php?page=../content/editquote_success');
 
         } // end add entry to database if
 
@@ -117,7 +117,7 @@ if (isset($_SESSION['admin'])) {
 
 else {
   $login_error = 'Please login to access this page';
-  header("Location: index.php?page=../admin/login&error=$login_error");
+  header('Location: index.php?page=../admin/login&error=$login_error');
 } // end user not logged in else
 
 ?>
