@@ -106,7 +106,7 @@ if (isset($_SESSION['admin'])) {
             $quote_ID = $get_quote_rs['ID'];
 
             // Go to success page
-            header("Location: index.php?page=editquote_success&quote_ID=$quote_ID");
+            header("Location: index.php?page=../content/editquote_success");
 
         } // end add entry to database if
 
