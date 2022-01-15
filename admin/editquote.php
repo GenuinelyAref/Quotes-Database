@@ -6,11 +6,6 @@ if (isset($_SESSION['admin'])) {
     $ID = $_REQUEST['ID'];
     echo "Author ID: ".$ID." space";
 
-    // get authors from database
-    $all_authors_sql = "SELECT * FROM `author` ORDER BY `Last` ASC";
-    $all_authors_query = mysqli_query($dbconnect, $all_authors_sql);
-    $all_authors_rs = mysqli_fetch_assoc($all_authors_query);
-
     // Get author ID
     $find_sql = "SELECT * FROM `quotes`
     JOIN `author` ON (`author`.`Author_ID` = `quotes`.`Author_ID`)
@@ -100,7 +95,7 @@ if (isset($_SESSION['admin'])) {
             $editentry_sql = "UPDATE `quotes` SET `Author_ID` = '$author_ID',
              `Quote` = '$quote', `Notes` = '$notes', `Subject1_ID` = '$subjectID_1',
              `Subject2_ID` = '$subjectID_2', `Subject3_ID` = '$subjectID_3'
-             WHERE `quotes`.`ID` = $ID";
+             WHERE `quotes`.`ID` = $ID;";
             $editentry_query = mysqli_query($dbconnect, $editentry_sql);
 
             // get quote ID for next page
@@ -139,10 +134,28 @@ else {
 
         <!-- existing authors -->
         <?php
+
+        // get authors from database
+        $all_authors_sql = "SELECT * FROM `author` ORDER BY `Last` ASC";
+        $all_authors_query = mysqli_query($dbconnect, $all_authors_sql);
+        $all_authors_rs = mysqli_fetch_assoc($all_authors_query);
+
+
         do {
+
+          $author_ID = $all_authors_rs['Author_ID'];
+          $first = $all_authors_rs['First'];
+          $middle = $all_authors_rs['Initial'];
+          $last = $all_authors_rs['Last'];
+
+          $author_full = $last.", ".$first." ".$middle;
+
+
           ?>
 
-          <option value="<?php echo $all_authors_rs['Author_ID'];?>"><?php echo $all_authors_rs['Last'];?>, <?php echo $all_authors_rs['First'];?> <?php echo $all_authors_rs['Middle'];?></option>
+          <option value="<?php echo $author_ID; ?>">
+              <?php echo $author_full; ?>
+          </option>
 
           <?php
         } // end of author options 'do'
