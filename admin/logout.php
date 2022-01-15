@@ -2,6 +2,6 @@
 
     unset($_SESSION['admin']);
     unset($_SESSION);
-    header("Location: index.php?page=../admin/login");
+    header('Location: index.php?page=../admin/login');
 
  ?>
