@@ -31,15 +31,24 @@
 
             <?php
 
+              // display admin easy-access buttons if logged in
               if (isset($_SESSION['admin'])) {
                 ?>
 
+                  <!-- plus button for add entry -->
                   <a href="index.php?page=../admin/new_quote" title="Add a quote"><i class="fa fa-plus fa-2x"></i></a>
 
+                  <!-- non-breaking space -->
                   &nbsp; &nbsp;
-                  <a href="index.php?page=../admin/logout" title="Log out">
-                      <i class="fa fa-sign-out fa-2x"></i>
-                  </a>
+
+                  <!-- logout button -->
+                  <a href="index.php?page=../admin/logout" title="Log out"><i class="fa fa-sign-out fa-2x"></i></a>
+
+                  <!-- non-breaking space -->
+                  &nbsp; &nbsp;
+
+                  <!-- Admin panel button-->
+                  <a href="index.php?page=../admin/admin_panel" title="Admin Panel"><i class="fa fa-ellipsis-v fa-2x"></i></a>
 
                 <?php
               } // end user is logged in if
