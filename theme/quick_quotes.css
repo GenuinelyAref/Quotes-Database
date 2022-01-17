@@ -276,6 +276,7 @@ input.tag-ok[type=text] {
 
 .error-text {
   color: darkred;
+  font-style: italic;
 }
 
 textarea, input[type=text] {
