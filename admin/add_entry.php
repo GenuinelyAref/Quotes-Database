@@ -193,7 +193,6 @@ if (isset($_SESSION['admin'])) {
               $find_author_rs = mysqli_fetch_assoc($find_author_query);
 
               $new_authorID = $find_author_rs['Author_ID'];
-              echo "New Author ID: ".$new_authorID;
 
               $author_ID = $new_authorID;
 
@@ -444,7 +443,7 @@ autocomplete(document.getElementById("subject1"), all_tags);
 autocomplete(document.getElementById("subject2"), all_tags);
 autocomplete(document.getElementById("subject3"), all_tags);
 
-<?php if($author_ID == "unknown") { ?>
+<?php if ($author_ID == "unknown") { ?>
 
   var all_jobs = <?php print("$all_jobs"); ?>;
   autocomplete(document.getElementById("job1"), all_jobs);
