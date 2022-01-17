@@ -7,7 +7,7 @@ if (isset($_SESSION['admin'])) {
 
 else {
   $login_error = 'Please login to access this page';
-  header('Location: index.php?page=../admin/login&error=$login_error');
+  header('Location: index.php?page=../admin/login&error='.$login_error);
 } // end user not logged in else
 
 ?>
