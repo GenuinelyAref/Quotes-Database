@@ -19,7 +19,13 @@ if (isset($_SESSION['admin'])) {
     // get values from form
     $author_ID = mysqli_real_escape_string($dbconnect, $_POST['author']);
 
-    header('Location: index.php?page=author&authorID='.$authorID);
+    if ($author_ID == "unknown") {
+      header('Location: index.php?page=../admin/admin_panel');
+    }
+
+    else {
+      header('Location: index.php?page=author&authorID='.$author_ID);
+    }
 
   } // end submit button pushed if
 
@@ -37,10 +43,12 @@ else {
 
 <h2>Quotes...</h2>
 <p>
-    To <a href="index.php?page=../admine/new_quote">add a quote</a>, use the preceding link or the '+' symbol at the top right of the page.
+    To <a href="index.php?page=../admin/new_quote">add a quote</a>, use the
+    preceding link or the '+' symbol at the top right of the page.
 </p>
 <p>
-    Quotes can edited / deleted by searching for a quote and then cilcking on the 'edit' / 'delete' icons at the bottom right of each quote. If you
+    Quotes can edited / deleted by searching for a quote and then cilcking on
+    the 'edit' / 'delete' icons at the bottom right of each quote. If you
     don't see icons to edit / delete quotes, it means that you are logged out.
 </p>
 
