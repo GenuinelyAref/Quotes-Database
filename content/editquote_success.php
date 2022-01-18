@@ -29,7 +29,7 @@ do {
           <!-- line break -->
           <br />
 
-          <a href="index.php?page=author&author_ID=<?php echo $find_rs['Author_ID']; ?>">
+          <a href="index.php?page=author&authorID=<?php echo $find_rs['Author_ID']; ?>">
             <?php echo $full_name; ?>
           </a>
       </p>
