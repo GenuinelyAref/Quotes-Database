@@ -4,12 +4,10 @@ if (!isset($_REQUEST['authorID'])) {
   header('Location: index.php');
 }
 
+// get author details from author table
 $author_to_find = $_REQUEST['authorID'];
 
-$find_sql = "SELECT * FROM `quotes`
-JOIN `author` ON (`author`.`Author_ID` = `quotes`.`Author_ID`)
-WHERE `quotes`.`Author_ID` = $author_to_find
-";
+$find_sql = "SELECT * FROM `author` WHERE `Author_ID` = $author_to_find";
 $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
 
@@ -77,30 +75,46 @@ include("get_author.php");
 
 <?php
 
-// loop through the results and display them...
-do {
+// see if there are any quotes...
+$find_quotes_sql = "SELECT * FROM `quotes` WHERE `Author_ID` = $author_to_find";
+$find_quotes_query = mysqli_query($dbconnect, $find_quotes_sql);
 
-    $quote = preg_replace('/[^A-Za-z0-9.,?\s\'\-]/', ' ', $find_rs['Quote']);
+$count = mysqli_num_rows($find_quotes_query);
+
+if ($count > 0) {
+  // find quotes if they exist...
+  $find_sql = "SELECT * FROM `quotes`
+  JOIN `author` ON (`author`.`Author_ID` = `quotes`.`Author_ID`)
+  WHERE `quotes`.`Author_ID` = $author_to_find";
+  $find_query = mysqli_query($dbconnect, $find_sql);
+  $find_rs = mysqli_fetch_assoc($find_query);
+
+  // loop through the results and display them...
+  do {
+
+      $quote = preg_replace('/[^A-Za-z0-9.,?\s\'\-]/', ' ', $find_rs['Quote']);
 
 
-    ?>
+      ?>
 
-  <div class="results">
-      <p>
-          <?php echo $quote; ?>
+    <div class="results">
+        <p>
+            <?php echo $quote; ?>
 
-      </p>
+        </p>
 
-    <!-- subject tags go here -->
-    <?php include("show_subjects.php"); ?>
+      <!-- subject tags go here -->
+      <?php include("show_subjects.php"); ?>
 
-  </div>
+    </div>
 
-  <br />
+    <br />
 
-  <?php
-} // end of display results 'do' loop
+    <?php
+  } // end of display results 'do' loop
 
-while ($find_rs = mysqli_fetch_assoc($find_query));
+  while ($find_rs = mysqli_fetch_assoc($find_query));
+
+} // end 'count > 0' loop
 
 ?>

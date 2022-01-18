@@ -4,13 +4,11 @@
 if (isset($_SESSION['admin'])) {
 
     $ID = $_REQUEST['ID'];
-    echo "Author ID: ".$ID." space";
 
     // Get author ID
     $find_sql = "SELECT * FROM `quotes`
     JOIN `author` ON (`author`.`Author_ID` = `quotes`.`Author_ID`)
-    WHERE `quotes`.`ID` = $ID
-    ";
+    WHERE `quotes`.`ID` = $ID";
 
     $find_query = mysqli_query($dbconnect, $find_sql);
     $find_rs = mysqli_fetch_assoc($find_query);

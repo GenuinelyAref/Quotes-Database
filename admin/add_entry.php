@@ -161,12 +161,12 @@ if (isset($_SESSION['admin'])) {
           } // end country 1 not blank if
 
           // get country IDs
-          $country_1_ID = get_ID($dbconnect, 'country', 'Country_ID', 'Country', $country_1);
-          $country_2_ID = get_ID($dbconnect, 'country', 'Country_ID', 'Country', $country_2);
+          $countryID_1 = get_ID($dbconnect, 'country', 'Country_ID', 'Country', $country_1);
+          $countryID_2 = get_ID($dbconnect, 'country', 'Country_ID', 'Country', $country_2);
 
           // get occupation IDs
-          $job_1_ID = get_ID($dbconnect, 'job', 'Job_ID', 'Job', $job_1);
-          $job_2_ID = get_ID($dbconnect, 'job', 'Job_ID', 'Job', $job_2);
+          $jobID_1 = get_ID($dbconnect, 'job', 'Job_ID', 'Job', $job_1);
+          $jobID_2 = get_ID($dbconnect, 'job', 'Job_ID', 'Job', $job_2);
 
 
         } // end error checking for new author if
@@ -183,8 +183,8 @@ if (isset($_SESSION['admin'])) {
 
               $new_author_sql = "INSERT INTO `author` (`Author_ID`, `First`, `Middle`, `Last`, `Gender`
                 , `Born`, `Country1_ID`, `Country2_ID`, `Job1_ID`, `Job2_ID`) VALUES (NULL, '$first'
-                  , '$middle', '$last', '$gender_code', '$yob', '$country_1_ID'
-                , '$country_2_ID', '$job_1_ID', '$job_2_ID');";
+                  , '$middle', '$last', '$gender_code', '$yob', '$countryID_1'
+                , '$countryID_2', '$jobID_1', '$jobID_2');";
               $new_author_query = mysqli_query($dbconnect, $new_author_sql);
 
               // Get Author ID
@@ -211,7 +211,7 @@ if (isset($_SESSION['admin'])) {
             $_SESSION['Quote_Success']=$quote_ID;
 
             // Go to success page
-            header('Location: index.php?page=quote_success');
+            header('Location: index.php?page=../content/quote_success');
 
         } // end add entry to database if
 
