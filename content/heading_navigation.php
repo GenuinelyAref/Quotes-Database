@@ -1,7 +1,7 @@
 <div class="box banner">
 
 
-    <h1>Quotes Database</h1>
+    <h1><a href="index.php?page=home" class="website_title_text">Quotes Database</a></h1>
 </div>    <!-- / banner -->
 
 <!-- Navigation goes here.  Edit BOTH the file name and the link name -->
