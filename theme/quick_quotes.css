@@ -301,3 +301,8 @@ textarea {
 .add-field {
   width: 90%;
 }
+
+a.website_title_text:link, a.website_title_text:visited {
+  color: #fff;
+  text-decoration: none;
+}
