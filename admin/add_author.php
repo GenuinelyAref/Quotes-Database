@@ -123,7 +123,7 @@ if (isset($_SESSION['admin'])) {
 
         // get occupation IDs
         $jobID_1 = get_ID($dbconnect, 'job', 'Job_ID', 'Job', $job_1);
-        $jobID_1 = get_ID($dbconnect, 'job', 'Job_ID', 'Job', $job_2);
+        $jobID_2 = get_ID($dbconnect, 'job', 'Job_ID', 'Job', $job_2);
 
 
 
