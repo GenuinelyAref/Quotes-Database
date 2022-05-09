@@ -130,10 +130,9 @@ if (isset($_SESSION['admin'])) {
         if ($has_errors != "yes") {
 
             // add author to database
-            $add_author_sql = "INSERT INTO `author` (`Author_ID`, `First`, `Middle`, `Last`, `Gender`
-              , `Born`, `Country1_ID`, `Country2_ID`, `Job1_ID`, `Job2_ID`) VALUES (NULL, '$first'
-                , '$middle', '$last', '$gender_code', '$yob', '$countryID_1'
-              , '$countryID_2', '$jobID_1', '$jobID_2');";
+            $add_author_sql = "INSERT INTO `author`(`Author_ID`, `First`, `Middle`, `Last`, `Gender`, `Born`, `Country1_ID`, `Country2_ID`, `Job1_ID`, `Job2_ID`)
+            VALUES (NULL, '$first', '$middle', '$last', '$gender_code', '$yob', '$countryID_1', '$countryID_2', '$jobID_1', '$jobID_2');
+            ";
             $add_author_query = mysqli_query($dbconnect, $add_author_sql);
 
             // Get Author ID
@@ -146,7 +145,7 @@ if (isset($_SESSION['admin'])) {
             $author_ID = $new_authorID;
 
             // Go to success page
-            header('Location: index.php?page=author&authorID='.$author_ID);
+            header('Location: index.php?page=../content/author&authorID='.$author_ID);
 
         } // end 'add entry to database' if
 
